@@ -1,9 +1,0 @@
-TAHIR 
-
-1. menu rapihkan seuaikan dengan menu koperasi & menu member -- udah
-2. edit profile koperasi belum disesuaikan  -- udah
-3. tab untuk sign out dan profile lengkapi dengan last login -- udah
-4. pada role koperasi, lihat data anggota belum terfilter sesuai dengan koperasinya. -- udah
-5. pada role koperasi, lihat data koperasi belum terfilter sesuai dengan induk koperasinya. -- udah
-6. Pagination data jadikan 100 row ber page -- udah
-7. benarkan upload produk member, sesuaikan dengan controller yang sudah ada -- udah
