@@ -1,0 +1,9 @@
+Dari Tahir
+
+		-Pas Registrasi status/level nya langsung jadi anggota komunitas. Untuk milih komunitas apa yg dia ikuti, nanti di edit profil setelah login (Setelah masuk dashboard)
+
+		-Controller AUTH untuk login, Controller GER untuk registrasi
+
+		-Di controller AUTH , jika success login redirect ke dashboard aplikasi
+
+		-Jika ada yang kurang jelas, WA 0812-208-0204

@@ -1,0 +1,7 @@
+Bagaimana data Anggota apabila koperasi nya telah dihapus ?
+Data produk harga nya hilang 3 0 terakhir, jadi 205000 tampilna 205 hungkul
+
+Bikin controller session untuk cek session di setiap menu dan setiap aksi
+
+
+Upload ke FTP

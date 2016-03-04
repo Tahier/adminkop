@@ -1,0 +1,35 @@
+APLIKASI
+	
+	- Login sudah selesai
+	- CRUD Koperasi, User, Pekerjaan, Level Selesai
+	- Session Token dan Last Login di Update Setiap kali login
+	- Delete user dan user level
+	-
+
+
+DATABASE
+
+	- Semua ID diganti jadi VARCHAR 25
+	- Semua Tabel ditambah Status Active
+	- Produk_foto ditambah id_foto ditambah Status Active
+	- Produk_history ditambah price_n dan price_s
+
+
+QUESTION
+
+	- Data yang di hapus (update status_active) hanya user dan koperasi atau semuanya ?
+	- Kalo hanya user dan koperasi saat pekerjaan atau level di hapus, data nu level atau pekerjaan na di hapus bakal
+	  moal muncul
+	- Kalo semuanya berarti kabeh tabel dikasih status active
+
+Kode 1 = Level
+Kode 2 = Produk
+Kode 3 = Produk Foto
+Kode 4 = Produk Kategori
+Kode 5 = Session Token
+Kode 6 = Pekerjaan
+Kode 7 =
+Kode 8 = Koperasi
+Kode 9 = User
+
+
