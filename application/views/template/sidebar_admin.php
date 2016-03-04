@@ -15,6 +15,8 @@
         <li><a href="<?= base_url()."koperasi" ?>"><i class="fa fa-user"></i> Data Koperasi Induk</a></li>
         <li><a href="<?= base_url()."cabang_koperasi" ?>"><i class="fa fa-user"></i> Data Cabang Koperasi</a></li>
         <li><a href="<?= base_url()."anggota" ?>"><i class="fa fa-user"></i> Data Anggota Koperasi</a></li>
+         <li><a href="#"><i class="fa fa-user"></i> Data Komunitas</a></li>
+        <li><a href="#"><i class="fa fa-user"></i> Data Anggota Komunitas</a></li>
     </ul>
 </li>
 <li class="header">MANAGEMENT ECOMMERCE</li>
@@ -61,4 +63,12 @@
         <li><a href="#"><i class="fa fa-user"></i> Deposito</a></li>
         <li><a href="#"><i class="fa fa-user"></i> Pinjaman</a></li>
     </ul>
+</li>
+
+
+<li class="header">MANAGEMENT KOMUNITAS</li>
+<li class="treeview">
+        <li><a href="#"><i class="fa fa-newspaper-o"></i> Data Berita Komunitas</a></li>
+        <li><a href="#"><i class="fa fa-calendar"></i> Data Event Komunitas</a></li>
+        <li><a href="#"><i class="fa fa-calendar-plus-o"></i> Data Agenda Komunitas</a></li>
 </li>

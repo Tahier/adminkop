@@ -20,6 +20,8 @@ $this->load->view('template/sidebar');
 </section>
 <!-- Main content -->
 <section class="content">
+
+
     <?php if($this->session->userdata('level')=="2" OR $this->session->userdata('level')=="3"){ ?>
         <?php if(($this->session->userdata('status_koperasi') == "N")){?>
         <div class="alert alert-warning">
@@ -40,6 +42,23 @@ $this->load->view('template/sidebar');
         </div>
         <?php } 
         }?>
+
+    <?php if($this->session->userdata('level') == "5") {?>
+
+
+        <?php if($this->session->userdata('status_komunitas') == "N"){?>
+        <div class="alert alert-warning">
+            <h4><i class="icon fa fa-warning"></i> Perhatian !</h4>
+            Anda belum memilih komunitas, silakan pilih komunitas anda di menu <strong><a href="<?= base_url() ?>profile">Profil</a></strong>
+        </div>
+        <? } ?>
+         <?php if ($this->session->userdata('status_komunitas') == "0"){ ?>
+        <div class="alert alert-danger">
+            <h4><i class="icon fa fa-ban"></i> Perhatian !</h4>
+            Komunitas anda dalam status <strong>Tidak Aktif</strong> Silakan hubungi komunitas anda.
+        </div>
+        <?php } ?>
+    <? } ?>
 
 
 
@@ -162,7 +181,7 @@ $this->load->view('template/sidebar');
 
 
 
-<?php if($this->session->userdata('level') != 3) { ?>
+<?php if($this->session->userdata('level') == 2 OR $this->session->userdata('level') == 1 OR $this->session->userdata('level') == 4){ ?>
 <div class="row">
     <div class="col-md-8">
         <!-- USERS LIST -->

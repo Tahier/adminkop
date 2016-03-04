@@ -20,7 +20,7 @@ class Auth extends CI_Controller {
 				}
 				else
 				{
-					redirect(base_url().'','refresh'); //jika berhasil redirect ke dashboard
+					redirect(base_url().'home','refresh'); //jika berhasil redirect ke dashboard
 				}
 					
 				
@@ -71,7 +71,7 @@ class Auth extends CI_Controller {
 										//Jika Anggota Komunitas
 										$this->session->set_userdata('komunitas', $row->komunitas);
 										if($this->session->userdata('komunitas') != NULL){
-											$this->session->set_userdata('komunitas', $row->koperasi);
+											$this->session->set_userdata('komunitas', $row->komunitas);
 											$this->session->set_userdata('status_komunitas', $this->login_mod->cek_status_active_komunitas($row->komunitas)->row()->status_active);
 										}
 										else {

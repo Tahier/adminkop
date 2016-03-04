@@ -36,6 +36,12 @@
                 else if($this->session->userdata('level') == 3){
                     $this->load->view('template/sidebar_member');
                 }
+                else if($this->session->userdata('level') == 4){
+                    $this->load->view('template/sidebar_komunitas');
+                }
+                else if($this->session->userdata('level') == 5){
+                    $this->load->view('template/sidebar_anggota_komunitas');
+                }
 
             }
 
