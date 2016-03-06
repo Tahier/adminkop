@@ -66,8 +66,14 @@
                                                                 else if($this->session->userdata('level')==2){
                                                                     echo "Koperasi";
                                                                 }
-                                                                else {
-                                                                    echo "Anggota";
+                                                                else if($this->session->userdata('level')==3){
+                                                                    echo "Anggota Koperasi";
+                                                                }
+                                                                else if($this->session->userdata('level')==4){
+                                                                    echo "Komunitas";
+                                                                }
+                                                                else if($this->session->userdata('level')==5){
+                                                                    echo "Anggota Komunitas";
                                                                 }
                                                               ?>
                                         </div>

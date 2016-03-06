@@ -48,7 +48,12 @@
 
         <!-- Top content -->
         <div class="top-content">
-            
+              <?php
+    if($this->session->flashdata('msg') != NULL){
+    echo '<div class="alert alert-info" role="alert" style="padding: 6px 12px;height:34px;">';
+        echo "<i class='fa fa-info-circle'></i> <strong><span style='margin-left:10px;'>".$this->session->flashdata('msg')."</span></strong>";
+    echo '</div>';
+    }?>
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">

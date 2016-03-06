@@ -50,13 +50,18 @@ class Auth extends CI_Controller {
 										if($row->parent_koperasi != "0"){ //cek apakah dia koperasi induk atau cabang, kalo cabang do
 											$this->session->set_userdata('status_koperasi', $this->login_mod->cek_status_active_koperasi($row->parent_koperasi)->row()->status_active);//cek status aktif koperasi induk
 											$this->session->set_userdata('nama_koperasi', ''); 
+											$this->session->set_userdata('parent_koperasi', $row->parent_koperasi);
+											$this->session->set_userdata('id_koperasi', $row->id_koperasi);
+
 										}
 										else { //kalo induk do
+											$this->session->set_userdata('id_koperasi', $row->id_koperasi);
+											$this->session->set_userdata('parent_koperasi' ,"0");
 											$this->session->set_userdata('status_koperasi', "1" );
 										}
 									}
 									else if ($this->session->userdata("level") == "3") { //Jika yg login anggota koperasi
-										if($this->session->userdata('koperasi') != NULL){ //jika sudah terdaftar/memlihih koperasi
+										if($row->koperasi != NULL){ //jika sudah terdaftar/memlihih koperasi
 											$this->session->set_userdata('koperasi', $row->koperasi);
 											$this->session->set_userdata('status_koperasi', $this->login_mod->cek_status_active_koperasi($row->koperasi)->row()->status_active); //cek status aktif koperasi
 										}
@@ -64,8 +69,8 @@ class Auth extends CI_Controller {
 											$this->session->set_userdata('status_koperasi', "N"); //jika belum pilih koperasi
 										}
 									}
-									else if ($this->session->userdata("level") == "4") {
-										//Jika Komunitas
+									else if($this->session->userdata('level') == "4"){ //Jika yang login adl komunitas
+										$this->session->set_userdata('komunitas', $row->id_komunitas);
 									}
 									else if ($this->session->userdata("level") == "5") {
 										//Jika Anggota Komunitas
@@ -79,6 +84,7 @@ class Auth extends CI_Controller {
 										}
 									}
 								}
+								$this->session->set_flashdata('msg','Login sukses, redirecting');
 								$this->login_mod->update_lastlogin($username);
 								return TRUE;
 							}
@@ -86,7 +92,7 @@ class Auth extends CI_Controller {
 						//jika password tidak sama dengan yang diinput
 							else {
 								$this->form_validation->set_message('check_password', 'Invalid username or password');
-							return FALSE;
+								return FALSE;
 							}
 						}
 				

@@ -90,6 +90,20 @@ $route['delete_user/(:num)'] = 'user/delete_user/$1';
 $route['user_delete'] = 'user/user_delete';
 
 
+$route['komunitas'] = 'komunitas/komunitas_data';
+$route['add_komunitas'] = 'komunitas/add_komunitas';
+$route['edit_komunitas/(:num)'] = 'komunitas/edit_komunitas/$1';
+$route['komunitasupdate'] = 'komunitas/update_komunitas';
+$route['delete_komunitas/(:num)'] = 'komunitas/delete_komunitas/$1';
+$route['komunitas_delete'] = 'komunitas/komunitas_delete';
+
+$route['anggota_komunitas'] = "anggota_komunitas/data_anggota_komunitas";
+$route['add_anggota_komunitas'] = 'anggota_komunitas/add_anggota_komunitas';
+$route['edit_anggota_komunitas/(:any)'] = 'anggota_komunitas/edit_anggota_komunitas/$1';
+$route['update_anggota_komunitas'] = 'anggota_komunitas/anggota_komunitas_edit';
+$route['delete_anggota_komunitas/(:any)'] = 'anggota_komunitas/delete_anggota_komunitas/$1';
+$route['anggota_komunitas_delete'] = 'anggota_komunitas/anggota_komunitas_delete';
+
 
 $route['koperasi'] = 'koperasi/koperasi_data';
 $route['cabang_koperasi'] = 'koperasi/cabang_koperasi_data';
@@ -141,6 +155,17 @@ $route['404_override'] = 'Notfound';
 $route['translate_uri_dashes'] = FALSE;
 $route['not_found'] = 'nothing';
 
+
+$route['berita/(:any)'] = "berita/berita_data/$1";
+$route['add_berita'] = "berita/add_berita";
+$route['tambah_berita'] = "berita/tambah_berita";
+$route['lihat_berita/(:any)'] = "berita/berita_lihat/$1";
+$route['edit_berita/(:any)'] = "berita/edit_berita/$1";
+$route['update_berita'] = "berita/berita_edit/";
+$route['edit_foto_berita'] = "berita/edit_foto_berita";
+$route['news'] = "berita/lihat_berita";
+$route['delete_berita/(:any)'] = "berita/delete_berita/$1";
+$route['berita_delete'] = "berita/berita_delete/";
 
 //ROUTE PRODUK KOPERASI
 $route['mykopproduk'] = 'produk/produk_data_kop';

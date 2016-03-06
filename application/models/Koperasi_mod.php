@@ -23,16 +23,15 @@ class Koperasi_mod extends CI_Model {
 
 	function get_koperasi_cabang(){
 		$this->db->select('user_info.id_user');
-		$this->db->from('koperasi');
+		$this->db->from('user_info');
 		$this->db->where('koperasi.status_active', "1");
-		$this->db->join('user_info', 'user_info.id_user = koperasi.id_user');
+		$this->db->join('koperasi', 'user_info.id_user = koperasi.id_user');
 		return $this->db->get();
 	}
 
 	function get_all_cabang_koperasi(){
 
 		if($this->session->userdata('level') == "1"){
-
 			$this->db->select('user_info.username, koperasi.alamat, koperasi.telp, koperasi.nama, koperasi.id_koperasi, koperasi.parent_koperasi');
 			$this->db->from('koperasi');
 			$this->db->join('user_info', 'user_info.id_user = koperasi.id_user');
@@ -128,12 +127,20 @@ class Koperasi_mod extends CI_Model {
 
 
 	function update_koperasi(){
-		$password = sha1(md5($this->input->post('password')));
+		
+		if($this->session->userdata('level') != "2"){
+			$parent_koperasi = $this->input->post('koperasi');
+		}
+		else if($this->session->userdata('parent_koperasi') == "0"){
+			$parent_koperasi = $this->session->userdata('id_koperasi');
+		}
+		else {
+			$parent_koperasi = $this->session->userdata('parent_koperasi');
+		}
+
 
 
 		$user_info = array('username' => $this->input->post('username'),
-						   'password' => $password,
-						   'status_active' => "1",
 						   'service_time' => date("Y-m-d H:i:s"),
 						   'service_action' => "update",
 						   'service_user'=>$this->session->userdata('id_user'));
@@ -150,11 +157,10 @@ class Koperasi_mod extends CI_Model {
 						  'ketua_koperasi' => $this->input->post('ketua'),
 						  'ketua_koperasi_telp' => $this->input->post('ketua_telp'),
 						  'keterangan_koperasi'=> $this->input->post('keterangan'),
+						  'parent_koperasi' => $parent_koperasi,
 						  'service_time' => date("Y-m-d H:i:s"),
 						  'service_action' => "update",
 						  'service_users'=>$this->session->userdata('id_user'));
-
-		if($this->session->userdata('level') != "2"){
 
 			$this->db->where('koperasi', $this->session->userdata('id'));
 			$this->db->update('user_info', $user_info);
@@ -162,17 +168,40 @@ class Koperasi_mod extends CI_Model {
 			$this->db->where('id_koperasi', $this->session->userdata('id'));
 			$this->db->update($this->tablename, $koperasi);
 
-		}
+	}
 
-		else {
+
+	function update_profil_koperasi(){
+		$password = sha1(md5($this->input->post('password')));
+
+
+		$user_info = array('username' => $this->input->post('username'),
+						   'password' => $password,
+						   'service_time' => date("Y-m-d H:i:s"),
+						   'service_action' => "update",
+						   'service_user'=>$this->session->userdata('id_user'));
+
+
+		$koperasi = array('nama'=>$this->input->post('nama'),
+						  'alamat' => $this->input->post('alamat'),
+						  'telp'=> $this->input->post('telepon'),
+						  'tgl_berdiri'=> $this->input->post('berdiri'),
+						  'legal' => $this->input->post('legal'),
+						  'ketua_koperasi' => $this->input->post('ketua'),
+						  'ketua_koperasi_telp' => $this->input->post('ketua_telp'),
+						  'keterangan_koperasi'=> $this->input->post('keterangan'),
+						  'service_time' => date("Y-m-d H:i:s"),
+						  'service_action' => "update",
+						  'service_users'=>$this->session->userdata('id_user'));
 
 			$this->db->where('id_user', $this->session->userdata('id_user'));
 			$this->db->update('user_info', $user_info);
 
 			$this->db->where('id_user', $this->session->userdata('id_user'));
 			$this->db->update($this->tablename, $koperasi);
-		}
+
 	}
+
 
 	function delete_koperasi(){
 		$data = array('status_active' => "0",

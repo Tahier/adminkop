@@ -54,7 +54,6 @@ class Login_mod extends CI_Model {
 								   user_info.password,
 								   komunitas.nama as nama_lengkap,
 								   user_info.level, user_info.last_login,
-								   komunitas.parent_komunitas,
 								   komunitas.id_komunitas,
 								   komunitas.status_active as status_active');
 
@@ -71,6 +70,8 @@ class Login_mod extends CI_Model {
 					return FALSE;
 				}
 			}
+
+
 
 
 		else{

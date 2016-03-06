@@ -10,7 +10,8 @@ $this->load->view('template/sidebar');
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-    Selamat Datang di Panel GeraiLumrah
+        <?= $this->session->userdata('koperasi'); ?>
+    Selamat Datang di Panel GeraiLumrah 
     <!-- <small>it all starts here</small> -->
     </h1>
     <ol class="breadcrumb">
@@ -42,6 +43,15 @@ $this->load->view('template/sidebar');
         </div>
         <?php } 
         }?>
+
+    <?php if($this->session->userdata('level') == "4"){ ?>
+        <?php if ($this->session->userdata('status_komunitas') == "0" AND $this->session->userdata('level') == "2") { ?>
+            <div class="alert alert-danger">
+                <h4><i class="icon fa fa-ban"></i> Perhatian !</h4>
+                Koperasi induk anda dalam status <strong>Tidak Aktif</strong> Silakan hubungi koperasi induk anda.
+            </div>
+            <?php } ?>
+    <?php } ?>
 
     <?php if($this->session->userdata('level') == "5") {?>
 

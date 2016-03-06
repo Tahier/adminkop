@@ -77,16 +77,16 @@ $this->load->view('template/sidebar');
             <input type="password" class="form-control" placeholder="Password" required="" name="password" />
           </div>
           <?php if($this->session->userdata('level') == "1") {?>
-          <div class="form-group ">
-            <label for="Koperasi">Koperasi Cabang</label>
-            <select name="koperasi" class="form-control">
-              <option value="0">Induk</option>
-              <?php 
-                foreach ($data_kop as $row) { ?>
-                   <option value="<?= $row->id_koperasi ?>" <?= set_select('koperasi', '$row->id_koperasi') ?>><?= $row->nama ?></option>
-              <?php   } ?>
-            </select>
-          </div>
+            <div class="form-group ">
+              <label for="Koperasi">Koperasi Cabang</label>
+              <select name="koperasi" class="form-control">
+                <option value="0">Induk</option>
+                <?php 
+                  foreach ($data_kop as $row) { ?>
+                     <option value="<?= $row->id_koperasi ?>" <?= set_select('koperasi', '$row->id_koperasi') ?>><?= $row->nama ?></option>
+                <?php   } ?>
+              </select>
+            </div>
           <?php } ?>
           <div class="row">
             <div class="col-xs-4">

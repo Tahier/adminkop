@@ -23,7 +23,7 @@ $this->load->view('template/sidebar');
 <div class="col-md-7">
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Edit Profile</h3>
+            <h3 class="box-title">Edit Profile </h3>
         </div>
         <div class="box-body">
             <form method="post" action="<?= base_url() ?>update_profile" enctype="multipart/form-data">
@@ -113,6 +113,8 @@ $this->load->view('template/sidebar');
                         </div>
                 <?php } ?><!-- end of if user select koperasi -->
                 <?php } ?> <!-- end of if user -->
+
+
                 <!-- Jika Koperasi -->
                 <?php if($this->session->userdata('level')== "2") { ?>
                 <div class="form-group">
@@ -142,6 +144,38 @@ $this->load->view('template/sidebar');
                     </div>
                     
                     <?php } ?> <!-- end of if koperasi -->
+
+                     <?php if ($this->session->userdata('level') == "5") {?>
+                        <div class="form-group ">
+                            <label for="Pekerjaan">Pekerjaan</label>
+                            <select name="pekerjaan" class="form-control">
+                                <?php
+                                foreach ($pekerjaan as $row) { ?>
+                                <option value="<?= $row->id_pekerjaan ?>" <?php if($row->id_pekerjaan == $user['pekerjaan'])
+                                    echo "selected";
+                                    else
+                                echo ""; ?>><?= $row->nama ?></option><?php } ?>
+                            </select>
+                        </div>
+                        <?php if(empty($this->session->userdata('komunitas'))) { ?>
+                        <div class="form-group ">
+                            <label for="Koperasi">Komunitas</label>
+                            <select name="komunitas" class="form-control">
+                                <?php
+                                foreach ($data_kom as $row) { ?>
+                                <option value="<?= $row->id_komunitas ?>" <?php if($row->id_komunitas == $user['komunitas'])
+                                    echo "selected";
+                                    else
+                                echo ""; ?>><?= $row->nama ?></option><?php }?>
+                            </select>
+                        </div>
+                        <?php } else { ?>
+                        <div class="form-group ">
+                            <label for="koperasi">Komunitas</label>
+                            <input type="text" class="form-control" disabled="" value="<?= $user['nama'] ?>" />
+                        </div>
+                        <?php } ?><!-- end of if user select komunitas -->
+                        <?php } ?> <!-- end of if anggota komunitas -->
                     
                     <?php } ?>  <!-- end of not admin -->
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Perbaharui Data</button>

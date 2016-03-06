@@ -18,7 +18,7 @@ class Koperasi extends CI_Controller {
 
 	function koperasi_data()
 	{
-		$this->session->set_userdata('url_kop', 'cabang_koperasi');
+		$this->session->set_userdata('url_kop', 'koperasi');
 		$data['koperasi'] = $this->koperasi_mod->get_all_koperasi()->result();
 		$data['no'] = 1;
 		$data['title'] = "Data Koperasi";
@@ -104,9 +104,16 @@ class Koperasi extends CI_Controller {
 		} 
 		else {
 			$this->koperasi_mod->update_koperasi();
+				if($this->session->userdata('url_kop') == "koperasi"){
+				redirect(base_url().'koperasi','refresh');
+				
 			$this->session->set_flashdata('msg','Data Koperasi berhasil diubah');
 
-			redirect(base_url().'koperasi','refresh');
+			}
+				else {
+				redirect(base_url().'cabang_koperasi','refresh');
+
+				}
 		}
 	}
 
@@ -119,7 +126,13 @@ class Koperasi extends CI_Controller {
 		if($this->koperasi_mod->get_koperasi_by_id($this->session->userdata('id'))->num_rows() > 0){
 			$this->koperasi_mod->delete_koperasi();
 			$this->session->set_flashdata('msg','Data Koperasi berhasil dihapus');
-			redirect(base_url().'koperasi','refresh');
+			if($this->session->userdata('url_kop') == "koperasi"){
+				redirect(base_url().'koperasi','refresh');
+			}
+				else {
+				redirect(base_url().'cabang_koperasi','refresh');
+
+				}
 		}
 		else {
 				redirect(base_url().'not_found','refresh');

@@ -53,16 +53,26 @@ class Anggota_mod extends CI_Model {
 	function add_anggota(){
 		$password = sha1(md5($this->input->post('password')));
 		$id_user = "9".time();
+
 		if($this->session->userdata('level') == "1"){
 			$koperasi = $this->input->post('koperasi');
 		}
 
 		else {
-			$koperasi = $this->session->userdata('koperasi');
+			$koperasi = $this->session->userdata('id_koperasi');
+		}
+
+		if($this->session->userdata('level') == "1"){
+			$komunitas = $this->input->post('komunitas');
+		}
+
+		else {
+			$komunitas = $this->session->userdata('komunitas');
 		}
 
 		$user_info = array('id_user' => $id_user,
-						   'koperasi' => $this->input->post('koperasi'),
+						   'koperasi' => $koperasi,
+						   'komunitas' => $komunitas,
 						   'username' => $this->input->post('username'),
 						   'password' => $password,
 						   'status_active' => "1",
@@ -176,7 +186,15 @@ class Anggota_mod extends CI_Model {
 		else if($this->session->userdata('level') == 1){
 			 $this->db->select('user_detail.nama_lengkap, user_info.foto, user_info.last_login');
 			 $this->db->join('user_detail', 'user_info.id_user = user_detail.id_user');
-			 $this->db->where('user_info.level', "3");
+			 $this->db->where('user_info.level !=', "1");
+			 $this->db->order_by('user_info.last_login', 'desc');
+			 return $this->db->get('user_info', 8);
+		}
+		else if($this->session->userdata('level') == 4){
+			 $this->db->select('user_detail.nama_lengkap, user_info.foto, user_info.last_login');
+			 $this->db->join('user_detail', 'user_info.id_user = user_detail.id_user');
+			 $this->db->where('user_info.level !=', "1");
+			 $this->db->where('komunitas', $this->session->userdata('komunitas'));
 			 $this->db->order_by('user_info.last_login', 'desc');
 			 return $this->db->get('user_info', 8);
 		}

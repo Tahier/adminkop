@@ -10,8 +10,10 @@ class Dashboard extends CI_Controller {
 		}
 		$this->load->model('admin_mod');
 		$this->load->model('anggota_mod');
+		$this->load->model('anggota_komunitas_mod');
 		$this->load->model('koperasi_mod');
 		$this->load->model('pekerjaan_mod');
+		$this->load->model('komunitas_mod');
 		$this->load->model('produk_mod');
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">
@@ -45,7 +47,10 @@ class Dashboard extends CI_Controller {
 				$data['anggota_komunitas'] = '';
 				$data['berita'] = '';
 				$data['event'] = '';
-				}
+				$data['last_login_user'] = $this->anggota_mod->last_login()->result();
+			}
+
+
 
 			
 			$data['title'] = "Dashboard";
@@ -109,7 +114,7 @@ class Dashboard extends CI_Controller {
 					
 				}
 				else {
-					$this->koperasi_mod->update_koperasi();
+					$this->koperasi_mod->update_profil_koperasi();
 					$this->session->set_flashdata('msg','Profil berhasil diubah');
 					$this->session->set_userdata('nama', $this->input->post('nama'));
 					redirect(base_url().'profile','refresh');
@@ -145,6 +150,42 @@ class Dashboard extends CI_Controller {
 						$this->session->set_userdata('status_koperasi', "1");
 						if(empty($this->session->userdata('koperasi'))){
 							$this->session->set_userdata('koperasi', $this->input->post('koperasi'));
+						}
+						redirect(base_url().'profile','refresh');
+				}
+			}
+
+			else if ($this->session->userdata('level') == 5){
+				$this->form_validation->set_rules('nama_depan', 'Nama Depan', 'required|xss_clean');
+				$this->form_validation->set_rules('nama_belakang', 'Nama Belakang', 'xss_clean');
+				$this->form_validation->set_rules('alamat', 'Alamat', 'required|xss_clean');
+				$this->form_validation->set_rules('email', 'Email', 'valid_email|required|xss_clean');
+				$this->form_validation->set_rules('telepon', 'Telepon', 'numeric|required|xss_clean');
+				$this->form_validation->set_rules('username', 'Username', 'required|xss_clean');
+				$this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
+				$this->form_validation->set_rules('komunitas', 'Komunitas', 'xss_clean');
+				$this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|xss_clean');
+
+				if ($this->form_validation->run() == FALSE) {
+					if($this->anggota_mod->get_anggota_by_id($this->session->userdata('id_user'))->num_rows() > 0){
+						$data['user'] = $this->anggota_komunitas_mod->get_anggota_komunitas_by_id($this->session->userdata('id_user'))->row_array();
+
+						$data['pekerjaan'] = $this->pekerjaan_mod->get_all_pekerjaan()->result();
+						$data['data_kom'] = $this->komunitas_mod->get_id_nama()->result();
+						$this->session->set_userdata('id', $this->session->userdata('id_user'));
+						$this->load->view('edit_profile', $data);
+					}
+					else {
+						redirect(base_url().'not_found','refresh');
+					}
+				}
+				else {
+						$this->anggota_komunitas_mod->update_anggota_komunitas();
+						$this->session->set_flashdata('msg','Profil berhasil diubah');
+						$this->session->set_userdata('nama', $this->input->post('nama_depan')."&nbsp;".$this->input->post('nama_belakang'));
+						$this->session->set_userdata('status_komunitas', "1");
+						if(empty($this->session->userdata('komunitas'))){
+							$this->session->set_userdata('komunitas', $this->input->post('komunitas'));
 						}
 						redirect(base_url().'profile','refresh');
 				}

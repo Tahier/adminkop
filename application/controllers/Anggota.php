@@ -68,8 +68,6 @@ class Anggota extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'valid_email|required|xss_clean');
 		$this->form_validation->set_rules('telepon', 'Telepon', 'numeric|required|xss_clean');
 		$this->form_validation->set_rules('username', 'Username', 'required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
-		$this->form_validation->set_rules('koperasi', 'Koperasi', 'required|xss_clean');
 		$this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|xss_clean');
 
 		if ($this->form_validation->run() == FALSE) {

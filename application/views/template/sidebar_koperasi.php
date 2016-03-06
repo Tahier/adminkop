@@ -62,5 +62,21 @@
         <li><a href="#"><i class="fa fa-user"></i> Pinjaman</a></li>
     </ul>
 </li>
+<li class="header">MANAGEMENT KONTEN</li>
 
+<li class="treeview">
+       <a href="#">
+        <i class="fa fa-newspaper-o"></i> <span>Management Berita</span>
+        <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="<?= base_url() ?>berita/admin"><i class="fa fa-newspaper-o"></i> Berita Admin</a></li>
+            <li><a href="<?= base_url() ?>berita/koperasi"><i class="fa fa-newspaper-o"></i> Berita Koperasi</a></li>
+        </ul>
+
+
+
+        <li><a href="#"><i class="fa fa-calendar"></i> Data Event Komunitas</a></li>
+        <li><a href="#"><i class="fa fa-calendar-plus-o"></i> Data Agenda Komunitas</a></li>
+</li>
 <?php } ?>

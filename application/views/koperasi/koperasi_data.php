@@ -31,7 +31,7 @@ $this->load->view('template/sidebar');
                         }?>
               <div class="box">
               	<div class="box-header with-border">
-              		<button class="btn btn-sm btn-success" onclick=location.href="<?= base_url() ?>add_koperasi"><i class="fa fa-plus-circle"></i> Tambah Koperasi</button>
+              		<button class="btn btn-sm btn-success" onclick=location.href="<?= base_url() ?>add_koperasi"><i class="fa fa-plus-circle"></i> Tambah Koperasi </button>
               		
               	</div>
                 <div class="box-body">

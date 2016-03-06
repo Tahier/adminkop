@@ -69,14 +69,10 @@ $this->load->view('template/sidebar');
           </div>
           <div class="form-group ">
             <label for="username">Username</label>
-            <input type="text" class="form-control" placeholder="Username" value="<?= $koperasi['username'] ?>" required="" name="username" />
+            <input type="text" class="form-control" placeholder="Username" value="<?= $koperasi['username'] ?>" required="" name="username" readonly />
           </div>
 
-          <div class="form-group ">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Password" required="" name="password" value="<?= $this->encrypt->decode($koperasi['password']) ?>"/>
-          </div>
-          
+          <?php if ($this->session->userdata('level') == 1) { ?>
           <div class="form-group ">
             <label for="Koperasi">Koperasi Cabang</label>
             <select name="koperasi" class="form-control">
@@ -92,6 +88,7 @@ $this->load->view('template/sidebar');
               <?php   } ?>
             </select>
           </div>
+          <?php } ?>
           <div class="row">
             <div class="col-xs-4">
               <button type="submit" class="btn btn-success btn-block btn-flat">Edit</button>

@@ -33,4 +33,17 @@
 <li><a href="#"><i class="fa fa-gift"></i> Lihat Pembelian Gerai</a></li>
 <li><a href="#"><i class="fa fa-gift"></i> Lihat Transaksi Commerce</a></li>
 
+<li class="header">LAINNYA</li>
+<li class="treeview">
+       <a href="#">
+        <i class="fa fa-newspaper-o"></i> <span>Berita</span>
+        <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="<?= base_url() ?>berita/admin"><i class="fa fa-newspaper-o"></i> Berita Admin</a></li>
+            <li><a href="<?= base_url() ?>berita/koperasi"><i class="fa fa-newspaper-o"></i> Berita Koperasi</a></li>
+        </ul>
+        <li><a href="#"><i class="fa fa-calendar"></i> Event Koperasi</a></li>
+        <li><a href="#"><i class="fa fa-calendar-plus-o"></i> Agenda Koperasi</a></li>
+</li>
 <?php } ?>
