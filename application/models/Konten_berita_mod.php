@@ -55,7 +55,7 @@ class konten_berita_mod extends CI_Model {
 			$this->db->select('konten_berita.*, komunitas.nama as nama_lengkap');
 			$this->db->from('konten_berita');
 			$this->db->join('komunitas', 'konten_berita.id_user = komunitas.id_user');
-			$this->db->where('konten_berita.level_akses', '2');
+			$this->db->where('konten_berita.level_akses', '4');
 			return $this->db->get();
 		} //if admin
 

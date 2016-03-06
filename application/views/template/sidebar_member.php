@@ -42,8 +42,9 @@
         <ul class="treeview-menu">
             <li><a href="<?= base_url() ?>berita/admin"><i class="fa fa-newspaper-o"></i> Berita Admin</a></li>
             <li><a href="<?= base_url() ?>berita/koperasi"><i class="fa fa-newspaper-o"></i> Berita Koperasi</a></li>
-        </ul>
-        <li><a href="#"><i class="fa fa-calendar"></i> Event Koperasi</a></li>
-        <li><a href="#"><i class="fa fa-calendar-plus-o"></i> Agenda Koperasi</a></li>
+        </ul> 
 </li>
+        
+<li><a href="<?= base_url() ?>event/koperasi"><i class="fa fa-calendar-plus-o"></i> Event Koperasi</a></li>
+<li><a href="<?= base_url() ?>agenda/koperasi"><i class="fa fa-calendar-plus-o"></i> Agenda Koperasi</a></li>
 <?php } ?>

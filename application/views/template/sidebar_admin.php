@@ -81,36 +81,31 @@
 <li class="treeview">
 
         <a href="#">
-            <i class="fa fa-newspaper-o"></i> <span>Management Event</span>
+            <i class="fa fa-fa fa-calendar"></i> <span>Management Event</span>
             <i class="fa fa-angle-left pull-right"></i>
         </a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-newspaper-o"></i> Event Koperasi</a></li>
-                <li><a href="#"><i class="fa fa-newspaper-o"></i> Event Komunitas</a></li>
+                <li><a href="<?= base_url() ?>event/koperasi"><i class="fa fa-calendar"></i> Event Koperasi</a></li>
+                <li><a href="<?= base_url() ?>event/komunitas"><i class="fa fa-calendar"></i> Event Komunitas</a></li>
             </ul>
 </li>
 <li class="treeview">
         <a href="#">
-            <i class="fa fa-newspaper-o"></i> <span>Management Agenda</span>
+            <i class="fa fa-calendar-plus-o"></i> <span>Management Agenda</span>
             <i class="fa fa-angle-left pull-right"></i>
         </a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-newspaper-o"></i> Agenda Koperasi</a></li>
-                <li><a href="#"><i class="fa fa-newspaper-o"></i> Agenda Komunitas</a></li>
+                <li><a href="agenda/koperasi"><i class="fa fa-calendar-plus-o"></i> Agenda Koperasi</a></li>
+                <li><a href="agenda/komunitas"><i class="fa fa-calendar-plus-o"></i> Agenda Komunitas</a></li>
             </ul>
 </li>
 <li class="treeview">
         <a href="#">
-            <i class="fa fa-newspaper-o"></i> <span>Management Compro</span>
+            <i class="fa fa-user"></i> <span>Management Compro</span>
             <i class="fa fa-angle-left pull-right"></i>
         </a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-newspaper-o"></i> Compro Koperasi</a></li>
-                <li><a href="#"><i class="fa fa-newspaper-o"></i> Compro Komunitas</a></li>
+                <li><a href="#"><i class="fa fa-user"></i> Compro Koperasi</a></li>
+                <li><a href="#"><i class="fa fa-user"></i> Compro Komunitas</a></li>
             </ul>
-</li>
-
-
-        <li><a href="#"><i class="fa fa-calendar"></i> Data Event Komunitas</a></li>
-        <li><a href="#"><i class="fa fa-calendar-plus-o"></i> Data Agenda Komunitas</a></li>
 </li>

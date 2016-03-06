@@ -167,6 +167,31 @@ $route['news'] = "berita/lihat_berita";
 $route['delete_berita/(:any)'] = "berita/delete_berita/$1";
 $route['berita_delete'] = "berita/berita_delete/";
 
+
+$route['event/(:any)'] = "event/event_data/$1";
+$route['add_event'] = "event/add_event";
+$route['tambah_event'] = "event/tambah_event";
+$route['lihat_event/(:any)'] = "event/event_lihat/$1";
+$route['edit_event/(:any)'] = "event/edit_event/$1";
+$route['update_event'] = "event/event_edit/";
+$route['edit_foto_event'] = "event/edit_foto_event";
+$route['event_detail'] = "event/lihat_event";
+$route['delete_event/(:any)'] = "event/delete_event/$1";
+$route['event_delete'] = "event/event_delete/";
+
+$route['agenda/(:any)'] = "agenda/agenda_data/$1";
+$route['add_agenda'] = "agenda/add_agenda";
+$route['tambah_agenda'] = "agenda/tambah_agenda";
+$route['lihat_agenda/(:any)'] = "agenda/agenda_lihat/$1";
+$route['edit_agenda/(:any)'] = "agenda/edit_agenda/$1";
+$route['update_agenda'] = "agenda/agenda_edit/";
+$route['edit_foto_agenda'] = "agenda/edit_foto_agenda";
+$route['agenda_detail'] = "agenda/lihat_agenda";
+$route['delete_agenda/(:any)'] = "agenda/delete_agenda/$1";
+$route['agenda_delete'] = "agenda/agenda_delete/";
+
+
+
 //ROUTE PRODUK KOPERASI
 $route['mykopproduk'] = 'produk/produk_data_kop';
 $route['mymemproduk'] = 'produk/produk_data_mem';
